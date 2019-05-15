@@ -1,0 +1,7 @@
+C:\Users\Gordon Cheung\source\repos\SimpleAdventure\SimpleAdventure\bin\Debug\SimpleAdventure.exe.config
+C:\Users\Gordon Cheung\source\repos\SimpleAdventure\SimpleAdventure\bin\Debug\SimpleAdventure.exe
+C:\Users\Gordon Cheung\source\repos\SimpleAdventure\SimpleAdventure\bin\Debug\SimpleAdventure.pdb
+C:\Users\Gordon Cheung\source\repos\SimpleAdventure\SimpleAdventure\obj\Debug\SimpleAdventure.csprojAssemblyReference.cache
+C:\Users\Gordon Cheung\source\repos\SimpleAdventure\SimpleAdventure\obj\Debug\SimpleAdventure.csproj.CoreCompileInputs.cache
+C:\Users\Gordon Cheung\source\repos\SimpleAdventure\SimpleAdventure\obj\Debug\SimpleAdventure.exe
+C:\Users\Gordon Cheung\source\repos\SimpleAdventure\SimpleAdventure\obj\Debug\SimpleAdventure.pdb
