@@ -8,6 +8,7 @@ namespace SimpleAdventure.PlayerClasses
 {
     class Sorcerer : Player
     {
+        
 
         public Sorcerer(string n)
         {
@@ -20,7 +21,17 @@ namespace SimpleAdventure.PlayerClasses
                 this._name = "Hero";
             }
 
-            _className = "Barbarian";
+            _className = "Sorcerer";
+            _baseDamage = 1;
+        }
+
+
+        public int DealDamage()
+        {
+            Random rnd = new Random();
+            
+
+            return _baseDamage * rnd.Next(1, 6) * rnd.Next(1, 6);
         }
     }
 }

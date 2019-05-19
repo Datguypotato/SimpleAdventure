@@ -21,7 +21,15 @@ namespace SimpleAdventure.PlayerClasses
             }
 
             _className = "Barbarian";
-            
+            _baseDamage = 10;
+        }
+
+        public int DealDamage()
+        {
+            Random rnd = new Random();
+
+
+            return _baseDamage * rnd.Next(10);
         }
     }
 }

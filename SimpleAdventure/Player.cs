@@ -11,6 +11,7 @@ namespace SimpleAdventure
         protected string _name;
         protected string _className;
         protected int _health = 100;
+        protected int _baseDamage;
         
         public string classname
         {
@@ -34,6 +35,22 @@ namespace SimpleAdventure
                 else
                 {
                     _health = value;
+                }
+            }
+        }
+
+        public int baseDamage
+        {
+            get { return _baseDamage; }
+            set
+            {
+                if(value < 0)
+                {
+                    Console.WriteLine("Base damage cannot be a negative");
+                }
+                else
+                {
+                    _baseDamage = value;
                 }
             }
         }
