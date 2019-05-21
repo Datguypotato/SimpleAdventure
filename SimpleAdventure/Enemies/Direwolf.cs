@@ -10,7 +10,16 @@ namespace SimpleAdventure.Enemies
     {
         public Direwolf()
         {
+            _name = "Direwolf";
+            _health = 50;
+            _strenght = 1;
+        }
 
+        public override int DealDamage()
+        {
+            Random rnd = new Random();
+
+            return _strenght * rnd.Next(6);
         }
     }
 }

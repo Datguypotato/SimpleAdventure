@@ -55,6 +55,10 @@ namespace SimpleAdventure
             }
         }
 
-        //public virtual void
+        public virtual int DealDamage()
+        {
+            return 0;
+        }
+
     }
 }

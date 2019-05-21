@@ -10,6 +10,7 @@ namespace SimpleAdventure
     {
         protected string _name;
         protected int _health;
+        protected int _strenght;
 
         public string name
         {
@@ -22,5 +23,16 @@ namespace SimpleAdventure
             get { return _health; }
             set { _health = value; }
         }
+
+        public int str
+        {
+            get { return _strenght; }
+        }
+
+        public virtual int DealDamage()
+        {
+            return 0;
+        }
+
     }
 }

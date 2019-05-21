@@ -34,6 +34,9 @@ namespace SimpleAdventure
             }
 
             Player player;
+            Enemy wolf = new Direwolf();
+            
+            
 
             int userNumber;
             string tempName;
@@ -79,6 +82,8 @@ namespace SimpleAdventure
             //Console.WriteLine("You typed: " + userNumber);
             //Console.ReadLine();
 
+            Battle(player, wolf);
+
             int makeDecision(int maxNumber)
             {
                 //This is for whevenever the player has to make a decision
@@ -101,12 +106,18 @@ namespace SimpleAdventure
                 do
                 {
                     Console.WriteLine("IM A ALIVE");
-                    player.health -= 10;
-                    Console.WriteLine(p.health);
+                    p.health -= e.DealDamage();
+                    Console.WriteLine(p.name + " has " + p.health + " hp left");
+                    e.health -= p.DealDamage();
+                    Console.WriteLine(e.name + " has " + e.health + " hp left");
                     Console.ReadLine();
 
 
-                } while (p.health > 0 || e.health <= 0);
+                } while (p.health > 0 && e.health >
+                
+                
+                
+                0);
             }
 
 

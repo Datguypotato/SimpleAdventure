@@ -26,7 +26,7 @@ namespace SimpleAdventure.PlayerClasses
         }
 
 
-        public int DealDamage()
+        public override int DealDamage()
         {
             Random rnd = new Random();
             

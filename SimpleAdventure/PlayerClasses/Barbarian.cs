@@ -24,12 +24,18 @@ namespace SimpleAdventure.PlayerClasses
             _baseDamage = 10;
         }
 
-        public int DealDamage()
+        public override int DealDamage()
         {
             Random rnd = new Random();
 
 
             return _baseDamage * rnd.Next(10);
+        }
+
+
+        public void scream()
+        {
+            Console.WriteLine("AAAAAAAAAAAH");
         }
     }
 }
