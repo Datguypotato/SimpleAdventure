@@ -1,6 +1,7 @@
 using System;
 using SimpleAdventure.PlayerClasses;
 using SimpleAdventure.Enemies;
+using SimpleAdventure.Locations;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,8 +36,8 @@ namespace SimpleAdventure
 
             Player player;
             Enemy wolf = new Direwolf();
-            
-            
+            Church church = new Church();
+
 
             int userNumber;
             string tempName;
@@ -73,16 +74,15 @@ namespace SimpleAdventure
             Console.Clear();
             #endregion
 
-            //Battle(player);
 
             //Console.WriteLine("Choose where you want to go");
             //Console.WriteLine("1. Church: For your healling needs 2. Forest: Lots of murder puppies\n3. Plains: Boring place nothing special 4. Swamp: What are you doing here!");
-            //makeDecision(3);
+            //userNumber = makeDecision(3);
 
-            //Console.WriteLine("You typed: " + userNumber);
-            //Console.ReadLine();
+            church.welcome();
+            userNumber = makeDecision(2);
 
-            Battle(player, wolf);
+            //Battle(player, wolf);
 
             int makeDecision(int maxNumber)
             {
@@ -113,11 +113,7 @@ namespace SimpleAdventure
                     Console.ReadLine();
 
 
-                } while (p.health > 0 && e.health >
-                
-                
-                
-                0);
+                } while (p.health > 0 && e.health > 0);
             }
 
 

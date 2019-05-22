@@ -8,5 +8,9 @@ namespace SimpleAdventure.Locations
 {
     class Forest : Location
     {
+        public Forest()
+        {
+            welcomeString = "Ay yo you are in a forest there are trees and shit";
+        }
     }
 }
