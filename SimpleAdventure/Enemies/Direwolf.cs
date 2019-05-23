@@ -12,14 +12,8 @@ namespace SimpleAdventure.Enemies
         {
             _name = "Direwolf";
             _health = 50;
+            _maxHealth = health;
             _strenght = 1;
-        }
-
-        public override int DealDamage()
-        {
-            Random rnd = new Random();
-
-            return _strenght * rnd.Next(6);
         }
     }
 }

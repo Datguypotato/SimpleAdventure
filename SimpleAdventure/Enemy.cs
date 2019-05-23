@@ -10,6 +10,7 @@ namespace SimpleAdventure
     {
         protected string _name;
         protected int _health;
+        protected int _maxHealth;
         protected int _strenght;
 
         public string name
@@ -31,7 +32,14 @@ namespace SimpleAdventure
 
         public virtual int DealDamage()
         {
-            return 0;
+            Random rnd = new Random();
+
+            return _strenght * rnd.Next(6);
+        }
+
+        public void ResetHealth()
+        {
+            _health = _maxHealth;
         }
 
     }

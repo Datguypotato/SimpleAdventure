@@ -42,6 +42,8 @@ namespace SimpleAdventure
 
 
             Direwolf wolf = new Direwolf();
+            Goblin goblin = new Goblin();
+            Orc orc = new Orc();
 
 
             int userNumber;
@@ -81,15 +83,32 @@ namespace SimpleAdventure
             Console.Clear();
             #endregion
 
-            EnterLoc(forest, wolf);
+            EnterLoc(swamp, wolf);
 
             Console.WriteLine("Choose where you want to go");
             Console.WriteLine("1. Church: For your healling needs 2. Forest: Lots of murder puppies\n3. Plains: Boring place nothing special 4. Swamp: What are you doing here!");
             userNumber = makeDecision(3);
 
+            switch (userNumber)
+            {
+                case 1:
+                    EnterChurch(player);
+                    break;
+                case 2:
+                    EnterLoc(forest, wolf);     
+                    break;
+                case 3:
+                    EnterLoc(plains, goblin);
+                    break;
+                case 4:
+                    EnterLoc(swamp, orc);
+                    break;
+                default:
+                    Console.WriteLine("Something went very wrong");
+                    break;
+                   
 
-
-            //Battle(player, wolf);
+            }
 
             int makeDecision(int maxNumber)
             {
@@ -101,28 +120,32 @@ namespace SimpleAdventure
                     Console.WriteLine("Choose a number between 1 and " + maxNumber);
                     userInput = Console.ReadLine();
                     int.TryParse(userInput, out userNumber);
-                    //Console.WriteLine(userNumber);
 
                 } while (userNumber < 1 || userNumber > maxNumber);
 
                 return userNumber;
             }
 
+            //turn based combat
             void Battle(Player p, Enemy e)
             {
+                Console.WriteLine("You are fighting a " + e.name);
+                Console.WriteLine("It has " + e.str);
                 do
                 {
-                    Console.WriteLine("IM A ALIVE");
+                    
                     p.health -= e.DealDamage();
                     Console.WriteLine(p.name + " has " + p.health + " hp left");
                     e.health -= p.DealDamage();
                     Console.WriteLine(e.name + " has " + e.health + " hp left");
                     Console.ReadLine();
 
-
                 } while (p.health > 0 && e.health > 0);
+
+                e.ResetHealth();
             }
 
+            //works on everytinh execpt church
             void EnterLoc(Location loc, Enemy e)
             {
                 loc.welcome();
@@ -162,27 +185,6 @@ namespace SimpleAdventure
                     else
                     {
                         church.Leave();
-                    }
-
-                } while (userNumber != 2);
-            }
-
-            void EnterForest(Player p)
-            {
-                forest.welcome();
-
-                do
-                {
-                    forest.options();
-                    userNumber = makeDecision(2);
-
-                    if(userNumber == 1)
-                    {
-                        Battle(p, wolf);
-                    }
-                    else
-                    {
-                        forest.Leave();
                     }
 
                 } while (userNumber != 2);
