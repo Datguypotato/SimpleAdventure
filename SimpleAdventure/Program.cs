@@ -35,12 +35,19 @@ namespace SimpleAdventure
             }
 
             Player player;
-            Enemy wolf = new Direwolf();
-            Church church = new Church();
+
+            Forest forest = new Forest();
+            Swamp swamp = new Swamp();
+            Plains plains = new Plains();
+
+
+            Direwolf wolf = new Direwolf();
 
 
             int userNumber;
             string tempName;
+
+            
 
             //creating player
             #region playerSetup
@@ -74,13 +81,13 @@ namespace SimpleAdventure
             Console.Clear();
             #endregion
 
+            EnterLoc(forest, wolf);
 
-            //Console.WriteLine("Choose where you want to go");
-            //Console.WriteLine("1. Church: For your healling needs 2. Forest: Lots of murder puppies\n3. Plains: Boring place nothing special 4. Swamp: What are you doing here!");
-            //userNumber = makeDecision(3);
+            Console.WriteLine("Choose where you want to go");
+            Console.WriteLine("1. Church: For your healling needs 2. Forest: Lots of murder puppies\n3. Plains: Boring place nothing special 4. Swamp: What are you doing here!");
+            userNumber = makeDecision(3);
 
-            church.welcome();
-            userNumber = makeDecision(2);
+
 
             //Battle(player, wolf);
 
@@ -116,20 +123,70 @@ namespace SimpleAdventure
                 } while (p.health > 0 && e.health > 0);
             }
 
+            void EnterLoc(Location loc, Enemy e)
+            {
+                loc.welcome();
 
-            //void Battle(Player p)
-            //{
-            //    //this is for testing battles
-            //    do
-            //    {
-            //        Console.WriteLine("IM A ALIVE");
-            //        Console.WriteLine(p.health);
-            //        player.health -= 10;
-            //        Console.ReadLine();
+                do
+                {
+                    loc.options();
+                    userNumber = makeDecision(2);
 
+                    if (userNumber == 1)
+                    {
+                        Battle(player, e);
+                    }
+                    else
+                    {
+                        loc.Leave();
+                    }
 
-            //    } while (p.health > 0);
-            //}
+                } while (userNumber != 2);
+            }
+
+            void EnterChurch(Player p)
+            {
+                Church church = new Church();
+                church.welcome();
+                
+                do
+                {
+                    church.options();
+                    userNumber = makeDecision(2);
+
+                    if (userNumber == 1)
+                    {
+                        Console.WriteLine("You are fully healed!");
+                        church.FullHeal(p);
+                    }
+                    else
+                    {
+                        church.Leave();
+                    }
+
+                } while (userNumber != 2);
+            }
+
+            void EnterForest(Player p)
+            {
+                forest.welcome();
+
+                do
+                {
+                    forest.options();
+                    userNumber = makeDecision(2);
+
+                    if(userNumber == 1)
+                    {
+                        Battle(p, wolf);
+                    }
+                    else
+                    {
+                        forest.Leave();
+                    }
+
+                } while (userNumber != 2);
+            }
         }
     }
 }

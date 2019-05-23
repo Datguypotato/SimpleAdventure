@@ -8,5 +8,11 @@ namespace SimpleAdventure.Locations
 {
     class Plains : Location
     {
+        public Plains()
+        {
+            _welcomeString = "Nothing to see her";
+
+            _goodbye = "Joe joe";
+        }
     }
 }

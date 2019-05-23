@@ -10,7 +10,10 @@ namespace SimpleAdventure.Locations
     {
         public Forest()
         {
-            welcomeString = "Ay yo you are in a forest there are trees and shit";
+            _welcomeString = "Ay yo you are in a forest there are trees and shit";
+
+            _goodbye = "bye bye have a beautiful time!";
         }
+
     }
 }
