@@ -8,5 +8,9 @@ namespace SimpleAdventure.Items
 {
     class Chest : Item
     {
+        public Chest()
+        {
+            _itemName = "Chest";
+        }
     }
 }

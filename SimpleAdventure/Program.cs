@@ -52,8 +52,6 @@ namespace SimpleAdventure
             int userNumber;
             string tempName;
 
-            
-
             //creating player
             #region playerSetup
             Console.WriteLine("Greeting new player");
@@ -86,38 +84,45 @@ namespace SimpleAdventure
             Console.Clear();
             #endregion
 
-
+            Console.Clear();
             do
             {
+                //end the game if you find both key and chest
                 if (key.hasItem && chest.hasItem)
                 {
-                    Console.WriteLine("CONGRATS YOU WON THE GAME NOW PLEASE GIVE ME MONEY");
+                    dia.hasItem = true;
+                    Console.WriteLine("You use the key on the chest and you find a diamond!");
+                    Console.WriteLine("This mean you won the game for some reason");
+                    Console.WriteLine("Thanks for playing the game");
                     Console.ReadLine();
                 }
-
-                Console.WriteLine("Choose where you want to go");
-                Console.WriteLine("1. Church: For your healling needs 2. Forest: Lots of murder puppies\n3. Plains: Boring place nothing special 4. Swamp: What are you doing here!");
-                userNumber = makeDecision(3);
-
-                switch (userNumber)
+                else
                 {
-                    case 1:
-                        EnterChurch(player);
-                        break;
-                    case 2:
-                        EnterLoc(forest, wolf);
-                        break;
-                    case 3:
-                        EnterLoc(plains, goblin);
-                        break;
-                    case 4:
-                        EnterLoc(swamp, orc);
-                        break;
-                    default:
-                        Console.WriteLine("Something went very wrong");
-                        break;
+                    Console.WriteLine("Choose where you want to go");
+                    Console.WriteLine("1. Church: For your healling needs 2. Forest: Lots of murder puppies\n3. Plains: Boring place nothing special 4. Swamp: What are you doing here!");
+                    userNumber = makeDecision(4);
 
+                    switch (userNumber)
+                    {
+                        case 1:
+                            EnterChurch(player);
+                            break;
+                        case 2:
+                            EnterLoc(forest, wolf);
+                            break;
+                        case 3:
+                            EnterLoc(plains, goblin);
+                            break;
+                        case 4:
+                            EnterLoc(swamp, orc);
+                            break;
+                        default:
+                            Console.WriteLine("Something went very wrong");
+                            break;
+
+                    }
                 }
+
 
             } while (!dia.hasItem);
 
@@ -134,6 +139,7 @@ namespace SimpleAdventure
 
                 } while (userNumber < 1 || userNumber > maxNumber);
 
+                Console.Clear();
                 return userNumber;
             }
 
@@ -165,6 +171,9 @@ namespace SimpleAdventure
                 {
                     FindItem(chest);
                 }
+
+                Console.ReadLine();
+                Console.Clear();
             }
 
             //works on everytinh execpt church
@@ -215,11 +224,16 @@ namespace SimpleAdventure
             void FindItem(Item item)
             {
                 Random rnd = new Random();
-                int i = rnd.Next(1);
+                int i = rnd.Next(2);
 
                 if (i == 1)
                 {
                     item.hasItem = true;
+                    Console.WriteLine("You found " + item.itemName);
+                }
+                else
+                {
+                    Console.WriteLine("You found no loot");
                 }
             }
         }

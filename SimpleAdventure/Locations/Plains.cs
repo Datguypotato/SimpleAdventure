@@ -10,7 +10,7 @@ namespace SimpleAdventure.Locations
     {
         public Plains()
         {
-            _welcomeString = "Nothing to see her";
+            _welcomeString = "Nothing to see here";
 
             _goodbye = "Joe joe";
         }
