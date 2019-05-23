@@ -11,18 +11,6 @@ namespace SimpleAdventure
         protected string _welcomeString;
         protected string _goodbye;
 
-        //public string welcomeString
-        //{
-        //    get { return _welcomeString; }
-        //    set { _welcomeString = value; }
-        //}
-
-        //public string farewellString
-        //{
-        //    get { return _FarewellString; }
-        //    set { _FarewellString = value; }
-        //}
-
         public void welcome()
         {
             Console.WriteLine(_welcomeString);
